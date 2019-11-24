@@ -16,4 +16,5 @@ public abstract class ReplacementAlgorithm {
     }
 
     public abstract void insert(int pageNum);
+    public abstract boolean search(int pageNum);
 }
