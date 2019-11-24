@@ -1,14 +1,13 @@
 public abstract class ReplacementAlgorithm {
 
-    protected int pageFrameCount;
     protected int pageFaultCount;
+    protected int elementCount;
+    protected int[] pageFrameList;
 
     public ReplacementAlgorithm(int pageFrameCount) {
-        if (pageFrameCount < 0)
-            throw new IllegalArgumentException();
-
-        this.pageFrameCount = pageFrameCount;
+        this.pageFrameList = new int[pageFrameCount];
         this.pageFaultCount = 0;
+        this.elementCount = 0;
     }
 
     public int getPageFaultCount() {

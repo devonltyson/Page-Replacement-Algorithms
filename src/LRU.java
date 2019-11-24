@@ -1,12 +1,7 @@
 public class LRU extends ReplacementAlgorithm {
 
-    int[] pageFrameList;
-    int elementCount;
-
     public LRU(int pageFrameCount) {
         super(pageFrameCount);
-        this.pageFrameList = new int[pageFrameCount];
-        this.elementCount = 0;
     }
 
     @Override

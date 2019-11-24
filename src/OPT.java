@@ -1,12 +1,7 @@
 public class OPT extends ReplacementAlgorithm {
 
-    int[] pageFrameList;
-    int elementCount;
-
     public OPT(int pageFrameCount) {
         super(pageFrameCount);
-        this.pageFrameList = new int[pageFrameCount];
-        this.elementCount = 0;
     }
 
     @Override

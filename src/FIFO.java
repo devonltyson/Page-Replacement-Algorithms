@@ -1,12 +1,7 @@
 public class FIFO extends ReplacementAlgorithm {
 
-    int[] pageFrameList;
-    int elementCount;
-
     public FIFO(int pageFrameCount) {
         super(pageFrameCount);
-        this.pageFrameList = new int[pageFrameCount];
-        this.elementCount = 0;
     }
 
     @Override
