@@ -26,12 +26,12 @@ public class Main {
 
         // compare page faults
         System.out.println("-- Page faults incurred --");
-        compareFaults(fifo);
-        compareFaults(lru);
-        compareFaults(opt);
+        showFaults(fifo);
+        showFaults(lru);
+        showFaults(opt);
     }
 
-    public static void compareFaults(ReplacementAlgorithm alg) {
+    public static void showFaults(ReplacementAlgorithm alg) {
         System.out.println(alg.toString() + ": " + alg.getPageFaultCount());
     }
 
