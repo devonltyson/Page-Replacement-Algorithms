@@ -21,4 +21,9 @@ public class OPT extends ReplacementAlgorithm {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Optimal";
+    }
 }

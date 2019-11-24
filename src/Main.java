@@ -6,6 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        if(args.length==0) {
+            System.out.println("ERROR: Please specify the number of page frames.");
+            throw new IllegalArgumentException();
+        }
+
         refString = createReferenceString(); // make reference String for page numbers
         int pageFrameCount = Integer.parseInt(args[0]); // get page frame count from command line arg
 
@@ -18,6 +23,16 @@ public class Main {
 
         ReplacementAlgorithm opt = new OPT(pageFrameCount);
         insertRefString(opt);
+
+        // compare page faults
+        System.out.println("-- Page faults incurred --");
+        compareFaults(fifo);
+        compareFaults(lru);
+        compareFaults(opt);
+    }
+
+    public static void compareFaults(ReplacementAlgorithm alg) {
+        System.out.println(alg.toString() + ": " + alg.getPageFaultCount());
     }
 
     // insert refString into algorithms

@@ -21,4 +21,9 @@ public class LRU extends ReplacementAlgorithm {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Least Recently Used";
+    }
 }

@@ -21,4 +21,9 @@ public class FIFO extends ReplacementAlgorithm {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "First In First Out";
+    }
 }
