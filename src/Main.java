@@ -6,29 +6,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if(args.length==0) {
-            System.out.println("ERROR: Please specify the number of page frames.");
-            throw new IllegalArgumentException();
-        }
-
         refString = createReferenceString(); // make reference String for page numbers
-        int pageFrameCount = Integer.parseInt(args[0]); // get page frame count from command line arg
 
-        // create replacement algorithms and insert reference strings
-        ReplacementAlgorithm fifo = new FIFO(pageFrameCount);
-        insertRefString(fifo);
+        System.out.println("Running algorithms... \n");
+        for(int i=1; i <= 30; i++) {
+            System.out.println("-- " + i + " PAGE FRAME(S) --");
+            run(new FIFO(i));
+            run(new LRU(i));
+            run(new OPT(i));
+            System.out.println();
+        }
+    }
 
-        ReplacementAlgorithm lru = new LRU(pageFrameCount);
-        insertRefString(lru);
-
-        ReplacementAlgorithm opt = new OPT(pageFrameCount);
-        insertRefString(opt);
-
-        // compare page faults
-        System.out.println("-- Page faults incurred --");
-        showFaults(fifo);
-        showFaults(lru);
-        showFaults(opt);
+    public static void run(ReplacementAlgorithm alg) {
+        insertRefString(alg);
+        showFaults(alg);
     }
 
     public static void showFaults(ReplacementAlgorithm alg) {
