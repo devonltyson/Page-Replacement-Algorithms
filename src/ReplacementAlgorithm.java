@@ -2,10 +2,11 @@ import java.util.LinkedList;
 
 public abstract class ReplacementAlgorithm {
 
-    protected int pageFaultCount;
+    protected int pageFaultCount, pageFrameCount;
     protected LinkedList<Integer> pageFrameList;
 
-    public ReplacementAlgorithm() {
+    public ReplacementAlgorithm(int pageFrameCount) {
+        this.pageFrameCount = pageFrameCount;
         this.pageFrameList = new LinkedList<>();
     }
 

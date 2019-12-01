@@ -1,10 +1,7 @@
 public class LRU extends ReplacementAlgorithm {
 
-    public int pageFrameCount;
-
     public LRU(int pageFrameCount) {
-        super();
-        this.pageFrameCount = pageFrameCount;
+        super(pageFrameCount);
     }
 
     @Override
@@ -15,7 +12,7 @@ public class LRU extends ReplacementAlgorithm {
                 this.pageFrameList.removeFirst();
             }
             this.pageFrameList.addLast(pageNum);
-            pageFaultCount++;
+            this.pageFaultCount++;
         } else {
             // change positions in the list since this page was recently used
             Integer num = pageNum;

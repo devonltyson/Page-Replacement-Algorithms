@@ -1,10 +1,7 @@
 public class FIFO extends ReplacementAlgorithm {
 
-    public int pageFrameCount;
-
     public FIFO(int pageFrameCount) {
-        super();
-        this.pageFrameCount = pageFrameCount;
+        super(pageFrameCount);
     }
 
     @Override
@@ -15,7 +12,7 @@ public class FIFO extends ReplacementAlgorithm {
                 this.pageFrameList.removeFirst();
             }
             this.pageFrameList.addLast(pageNum);
-            pageFaultCount++;
+            this.pageFaultCount++;
         }
     }
 
