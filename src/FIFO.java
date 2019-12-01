@@ -1,20 +1,22 @@
 public class FIFO extends ReplacementAlgorithm {
 
+    public int pageFrameCount;
+
     public FIFO(int pageFrameCount) {
-        super(pageFrameCount);
+        super();
+        this.pageFrameCount = pageFrameCount;
     }
 
     @Override
     // inset a page
     public void insert(int pageNum) {
-
-    }
-
-    @Override
-    // Searches for page pageNumber in the page frame list
-    public boolean search(int pageNum) {
-
-        return false;
+        if(!search(pageNum)) {
+            if(this.pageFrameList.size() == this.pageFrameCount) {
+                this.pageFrameList.removeFirst();
+            }
+            this.pageFrameList.addLast(pageNum);
+            pageFaultCount++;
+        }
     }
 
     @Override

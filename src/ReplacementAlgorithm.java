@@ -1,12 +1,13 @@
+import java.util.LinkedList;
+
 public abstract class ReplacementAlgorithm {
 
     protected int pageFaultCount;
     protected int elementCount;
-    protected int[] pageFrameList;
+    protected LinkedList<Integer> pageFrameList;
 
-    public ReplacementAlgorithm(int pageFrameCount) {
-        this.pageFrameList = new int[pageFrameCount];
-        this.pageFaultCount = 0;
+    public ReplacementAlgorithm() {
+        this.pageFrameList = new LinkedList<>();
         this.elementCount = 0;
     }
 
@@ -14,6 +15,14 @@ public abstract class ReplacementAlgorithm {
         return this.pageFaultCount;
     }
 
+    // Searches for page pageNumber in the page frame list
+    public boolean search(int pageNum) {
+        if(this.pageFrameList.contains(pageNum)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public abstract void insert(int pageNum);
-    public abstract boolean search(int pageNum);
 }

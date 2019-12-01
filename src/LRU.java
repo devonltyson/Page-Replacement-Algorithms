@@ -1,20 +1,16 @@
 public class LRU extends ReplacementAlgorithm {
 
+    public int pageFrameCount;
+
     public LRU(int pageFrameCount) {
-        super(pageFrameCount);
+        super();
+        this.pageFrameCount = pageFrameCount;
     }
 
     @Override
     // insert a page
     public void insert(int pageNum) {
 
-    }
-
-    @Override
-    // Searches for page pageNumber in the page frame list
-    public boolean search(int pageNum) {
-
-        return false;
     }
 
     @Override
