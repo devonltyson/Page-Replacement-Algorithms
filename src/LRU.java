@@ -10,7 +10,18 @@ public class LRU extends ReplacementAlgorithm {
     @Override
     // insert a page
     public void insert(int pageNum) {
-
+        if(!search(pageNum)) {
+            if(this.pageFrameList.size() == this.pageFrameCount) {
+                this.pageFrameList.removeFirst();
+            }
+            this.pageFrameList.addLast(pageNum);
+            pageFaultCount++;
+        } else {
+            // change positions in the list since this page was recently used
+            Integer num = pageNum;
+            this.pageFrameList.remove(num);
+            this.pageFrameList.addLast(pageNum);
+        }
     }
 
     @Override
