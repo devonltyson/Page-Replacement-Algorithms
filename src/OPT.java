@@ -1,39 +1,44 @@
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class OPT extends ReplacementAlgorithm {
 
     public OPT(int pageFrameCount) {
         super(pageFrameCount);
     }
-    Main main = new Main();
+
     @Override
     // insert a page
     public void insert(int pageNum) {
         if(!search(pageNum)){
+            int store_highest_index = 0; int temp = 0; int index_to_remove = 0;
             if(this.pageFrameList.size() == this.pageFrameCount) {
-                int store_highest_index = 0; int temp = 0; int index_to_remove = 0;
                 for(int i = 0; i < this.pageFrameList.size(); i++){
                     int sha = this.pageFrameList.get(i);
-                    temp = main.toRemove(sha);
-                    if(temp > store_highest_index){
-                        store_highest_index = temp;
-                        index_to_remove = i;
+                    for(int x = pageFrameList.size(); x < Main.createReferenceString().length; x++){
+                        if(Main.refString[x] == sha){
+                           temp = x;
+                           if(temp > store_highest_index){
+                               index_to_remove = i;
+                               store_highest_index = temp;
+                           }
+                        }
+                        break;
                     }
                 }
+                //System.out.println("removing index "+ index_to_remove);
                 this.pageFrameList.remove(index_to_remove);
             }
-            this.pageFrameList.addLast(pageNum);
+            this.pageFrameList.add(index_to_remove, pageNum);
             this.pageFaultCount++;
         }
 
         else {
             Integer num = pageNum;
+            int index = this.pageFrameList.indexOf(num);
             this.pageFrameList.remove(num);
-            this.pageFrameList.addLast(pageNum);
+            this.pageFrameList.add(index, pageNum);
         }
-
-
     }
 
     @Override

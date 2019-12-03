@@ -46,15 +46,4 @@ public class Main {
         return referenceString;
     }
 
-    public int toRemove(int x){
-        int actual_temp = 0;
-        for (int i = 0; i < SIZE; i++){
-            if (refString[i] == x){
-              //System.out.println(x + " occurs here "+ i);
-              actual_temp = i;
-            }
-        }
-       // System.out.println("at end " + actual_temp);
-        return actual_temp;
-    }
 }
