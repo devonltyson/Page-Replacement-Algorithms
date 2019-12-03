@@ -2,7 +2,7 @@ public class Main {
 
     private static final int SIZE = 100;
     private static final int UPPER_BOUND = 50;
-    private static int[] refString;
+    public static int[] refString;
 
     public static void main(String[] args) {
 
@@ -44,5 +44,17 @@ public class Main {
             referenceString[i] = generator.nextInt(UPPER_BOUND);
         }
         return referenceString;
+    }
+
+    public int toRemove(int x){
+        int actual_temp = 0;
+        for (int i = 0; i < SIZE; i++){
+            if (refString[i] == x){
+              //System.out.println(x + " occurs here "+ i);
+              actual_temp = i;
+            }
+        }
+       // System.out.println("at end " + actual_temp);
+        return actual_temp;
     }
 }
