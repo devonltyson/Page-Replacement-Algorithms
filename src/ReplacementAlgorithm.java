@@ -10,11 +10,12 @@ public abstract class ReplacementAlgorithm {
         this.pageFrameList = new LinkedList<>();
     }
 
+    // get number of faults incurred
     public int getPageFaultCount() {
         return this.pageFaultCount;
     }
 
-    // Searches for page pageNumber in the page frame list
+    // search for page in the page frame list
     public boolean search(int pageNum) {
         if(this.pageFrameList.contains(pageNum)) {
             return true;
